@@ -6,16 +6,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ListComp from './pages/board/ListComp';
 import MenuComp from './components/layout/MenuComp';
 import ViewComp from './pages/board/ViewComp';
-import ErrorPageComp from './pages/Error/ErrorPageComp';
+import ErrorPageComp from './pages/error/ErrorPageComp';
 import FooterComp from './components/layout/FooterComp';
 import './App.css';
 import AboutComp from './pages/about/AboutComp';
 import BoardComp from './pages/board/BoardComp';
+import SwiperComp from './components/layout/SwiperComp';
 
 function App() {
   return (
     <BrowserRouter>
       <MenuComp></MenuComp>
+      <SwiperComp></SwiperComp>
       <Routes>
         <Route path="/" element={<HomeComp />}></Route>
         <Route path="/about/*" element={<AboutComp />}></Route>

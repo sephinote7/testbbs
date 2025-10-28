@@ -7,8 +7,6 @@ import SwiperComp from '../../components/layout/SwiperComp';
 function aboutComp() {
   return (
     <div>
-      <SwiperComp></SwiperComp>
-
       <ul className="d-flex justify-content-center gap-3 py-3 align-items-center aboutMenu mb-3">
         <li>
           <NavLink className="nav-link" to="/about/company">
