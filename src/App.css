@@ -1,0 +1,14 @@
+.navMenu li a.active {
+  font-weight: 700;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutMenu li a.active {
+  font-weight: 700;
+}

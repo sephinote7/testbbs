@@ -1,34 +1,29 @@
 import { useState, useEffect } from 'react';
 import supabase from './utils/supabase';
 import dayjs from 'dayjs';
+import HomeComp from './pages/home/HomeComp';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ListComp from './pages/board/ListComp';
+import MenuComp from './components/layout/MenuComp';
+import ViewComp from './pages/board/ViewComp';
+import ErrorPageComp from './pages/Error/ErrorPageComp';
+import FooterComp from './components/layout/FooterComp';
+import './App.css';
+import AboutComp from './pages/about/AboutComp';
+import BoardComp from './pages/board/BoardComp';
 
 function App() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function getPosts() {
-      const { data: posts } = await supabase.from('posts').select();
-
-      console.log(posts);
-      setPosts(posts);
-    }
-
-    getPosts();
-  }, []);
-
   return (
-    <div>
-      <h3>Post</h3>
-
-      <ul>
-        {posts.map((post, i) => (
-          <li key={i}>
-            {post.title} / {post.name} / {post.content} /
-            {dayjs(post.created_at).format('YYYY-MM-DD dd')}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <BrowserRouter>
+      <MenuComp></MenuComp>
+      <Routes>
+        <Route path="/" element={<HomeComp />}></Route>
+        <Route path="/about/*" element={<AboutComp />}></Route>
+        <Route path="/*" element={<ErrorPageComp />}></Route>
+        <Route path="/board/*" element={<BoardComp />}></Route>
+      </Routes>
+      <FooterComp />
+    </BrowserRouter>
   );
 }
 export default App;
