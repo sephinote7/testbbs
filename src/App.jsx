@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <MenuComp></MenuComp>
-      <SwiperComp></SwiperComp>
+
       <Routes>
         <Route path="/" element={<HomeComp />}></Route>
         <Route path="/about/*" element={<AboutComp />}></Route>
