@@ -4,8 +4,11 @@ import dayjs from 'dayjs';
 import { Link, Route, Routes } from 'react-router-dom';
 import WriteComp from './WriteComp';
 import ViewComp from './ViewComp';
+import { useBoard } from '../../context/BoardContext';
 
-function ListComp({ posts }) {
+const { posts } = useBoard();
+
+function ListComp() {
   if (!posts) {
     return <p>게시글 없음</p>;
   }

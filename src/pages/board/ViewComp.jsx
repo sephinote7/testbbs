@@ -4,27 +4,8 @@ import dayjs from 'dayjs';
 import { Link, useSearchParams } from 'react-router-dom';
 
 function ViewComp() {
-  const [posts, setPosts] = useState({});
-
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
-
-  console.log(posts);
-
-  useEffect(() => {
-    async function getOnePost() {
-      try {
-        const { data, error } = await supabase
-          .from('posts')
-          .select('*')
-          .eq('id', Number(id))
-          .single();
-        setPosts(data);
-      } catch (error) {}
-      console.log(posts);
-    }
-    getOnePost();
-  }, []);
 
   return (
     <div className="container">
